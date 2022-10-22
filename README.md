@@ -29,6 +29,9 @@ Available fallback options:
 - duckduckgo
 ```
 
+> **Warning**
+> A fallback that is set will remain even if the parameter is removed. To reset to DuckDuckGo, explicitly set a fallback to `duckduckgo` instead.
+
 ## Commands
 
 The list of commands available can be found on [https://tcgj.github.io/toolong]()
