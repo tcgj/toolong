@@ -2,12 +2,13 @@ declare const self: ServiceWorkerGlobalScope;
 export type {};
 
 import { Commands } from './commands/commands';
-import { duckDuckGoCommandHandler } from './commands/duckduckgo';
+import { duckDuckGoCommandHandler, DUCK_DUCK_GO_COMMAND_NAME } from './commands/duckduckgo';
 import { githubCommandHandler, GITHUB_COMMAND_NAME } from './commands/github';
 import { googleCommandHandler, GOOGLE_COMMAND_NAME } from './commands/google';
 import { Utils } from './util';
 
 const COMMANDS = new Commands(duckDuckGoCommandHandler)
+  .add(DUCK_DUCK_GO_COMMAND_NAME, duckDuckGoCommandHandler)
   .add(GOOGLE_COMMAND_NAME, googleCommandHandler)
   .add(GITHUB_COMMAND_NAME, githubCommandHandler);
 
@@ -16,6 +17,19 @@ async function getSearchResponse(searchString: string): Promise<Response> {
   const tokens = Utils.tokenize(decodedString);
 
   return COMMANDS.search(tokens);
+}
+
+function setFallbackSearchHandler(altSearch: string) {
+  switch (altSearch) {
+    case 'google':
+      COMMANDS.setFallback(googleCommandHandler);
+      break;
+    case 'duckduckgo':
+      COMMANDS.setFallback(duckDuckGoCommandHandler);
+      break;
+    default:
+      break;
+  }
 }
 
 self.addEventListener('install', () => {
@@ -52,6 +66,11 @@ self.addEventListener('fetch', (event) => {
   const searchString = url.searchParams.get('search');
   if (searchString == null) {
     return;
+  }
+
+  const fallback = url.searchParams.get('fallback');
+  if (fallback) {
+    setFallbackSearchHandler(fallback);
   }
 
   event.respondWith(getSearchResponse(searchString));

@@ -12,6 +12,16 @@ To set up, add this link as a search engine in your favourite browser. To make i
 https://tcgj.github.io/toolong?search=%s
 ```
 
+## Fallback
+
+When performing a standard search, TooLong defaults to DuckDuckGo. To change this, include an additional `fallback` query parameter in the link, specifying the search engine to use as a fallback search engine.
+
+e.g.
+
+```
+https://tcgj.github.io/toolong?fallback=google&search=%s
+```
+
 ## Commands
 
 The list of commands available can be found on [https://tcgj.github.io/toolong]()
