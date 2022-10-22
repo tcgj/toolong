@@ -9,8 +9,8 @@
       (async () => {
         if ('serviceWorker' in navigator) {
           try {
-            const registration = await navigator.serviceWorker.register('/toolong/sw.js', {
-              scope: '/toolong',
+            const registration = await navigator.serviceWorker.register('./sw.js', {
+              scope: './',
             });
             registration.update();
             if (registration.installing) {
