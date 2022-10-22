@@ -14,12 +14,19 @@ https://tcgj.github.io/toolong?search=%s
 
 ## Fallback
 
-When performing a standard search, TooLong defaults to DuckDuckGo. To change this, include an additional `fallback` query parameter in the link, specifying the search engine to use as a fallback search engine.
+When performing a standard search, TooLong defaults to DuckDuckGo. To change this, include an additional `fallback` query parameter in the link. The specified search engine will be set as the default fallback search engine.
 
 e.g.
 
 ```
 https://tcgj.github.io/toolong?fallback=google&search=%s
+```
+
+Available fallback options:
+
+```
+- google
+- duckduckgo
 ```
 
 ## Commands
