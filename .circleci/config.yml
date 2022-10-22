@@ -1,0 +1,56 @@
+version: 2.1
+
+jobs:
+  build:
+    working_directory: ~/toolong
+    docker:
+      - image: cimg/node:16.14.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - restore_cache:
+          keys:
+            - node-modules-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - save_cache:
+          paths:
+            - ~/.cache/yarn
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+      - save_cache:
+          paths:
+            - node_modules
+          key: node-modules-{{ checksum "yarn.lock" }}
+      - run:
+          name: Build files
+          command: yarn build
+  deploy:
+    working_directory: ~/toolong
+    docker:
+      - image: cimg/node:16.14.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - run:
+          name: Setup gh-pages
+          command: |
+            git config user.email "7994529+tcgj@users.noreply.github.com"
+            git config user.name "ci-build"
+      - run:
+          name: Deploy to GitHub Pages
+          command: yarn ghpages
+
+workflows:
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main

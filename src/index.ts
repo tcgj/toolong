@@ -50,7 +50,7 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url);
   const searchString = url.searchParams.get('search');
-  if (url.pathname !== '/' || searchString == null) {
+  if (url.pathname !== '/toolong' || searchString == null) {
     return;
   }
 
