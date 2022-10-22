@@ -3,8 +3,20 @@ export namespace Utils {
     return value.split(' ').filter((s) => s);
   }
 
-  export function makeSearchUrl(endpoint: string, queryParam: string, tokens: string[]): string {
-    return `${endpoint}?${queryParam}=${encodeURIComponent(tokens.join(' '))}`;
+  export function tokensToSearchString(tokens: string[]): string {
+    return encodeURIComponent(tokens.join(' '));
+  }
+
+  export function makeSearchUrl(endpoint: string, searchParams: Record<string, string>): string {
+    const queryPairs = Object.entries(searchParams);
+    if (!queryPairs.length) {
+      return endpoint;
+    }
+    return `${endpoint}${`?${queryPairs.map(([key, value]) => `${key}=${value}`).join('&')}`}`;
+  }
+
+  export function makeSimpleSearchUrl(endpoint: string, searchKey: string, tokens: string[]): string {
+    return makeSearchUrl(endpoint, { [searchKey]: tokensToSearchString(tokens) });
   }
 
   export function makeRedirectResponse(url: string): Response {
