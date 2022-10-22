@@ -5,7 +5,6 @@
   "author": "Terence Chong",
   "license": "MIT",
   "devDependencies": {
-    "gh-pages": "^4.0.0",
     "http-server": "^14.1.1",
     "ts-loader": "^9.4.1",
     "typescript": "^4.8.4",
@@ -17,7 +16,6 @@
     "clean": "rm -rf ./dist/",
     "copy-files": "cp -r ./src/public/ ./dist/",
     "develop": "BASE_SEARCH_PATH='/' http-server ./dist/ --port=9000",
-    "ghpages": "yarn gh-pages --dist dist",
     "watch": "webpack --watch --progress --mode=development"
   },
   "packageManager": "yarn@3.2.4"

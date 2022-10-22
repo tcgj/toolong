@@ -38,11 +38,12 @@ jobs:
       - run:
           name: Setup gh-pages
           command: |
+            yarn add --dev gh-pages
             git config user.email "7994529+tcgj@users.noreply.github.com"
             git config user.name "ci-build"
       - run:
           name: Deploy to GitHub Pages
-          command: yarn ghpages
+          command: yarn gh-pages --dist dist
 
 workflows:
   build_and_deploy:
