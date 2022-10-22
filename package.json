@@ -17,7 +17,8 @@
     "clean": "rm -rf ./dist/",
     "copy-files": "cp -r ./src/public/ ./dist/",
     "develop": "BASE_SEARCH_PATH='/' http-server ./dist/ --port=9000",
-    "ghpages": "gh-pages --dist dist",
+    "ghpages": "yarn gh-pages --dist dist",
     "watch": "webpack --watch --progress --mode=development"
-  }
+  },
+  "packageManager": "yarn@3.2.4"
 }

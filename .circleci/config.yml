@@ -15,7 +15,7 @@ jobs:
             - node-modules-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+          command: yarn install --immutable
       - save_cache:
           paths:
             - ~/.cache/yarn
