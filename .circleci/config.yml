@@ -27,6 +27,10 @@ jobs:
       - run:
           name: Build files
           command: yarn build
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - dist
   deploy:
     working_directory: ~/toolong
     docker:
@@ -34,7 +38,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: dist
+          at: ./
       - run:
           name: Setup gh-pages
           command: |
