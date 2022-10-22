@@ -14,7 +14,7 @@
   "scripts": {
     "build": "yarn clean && yarn copy-files && webpack --mode=production",
     "clean": "rm -rf ./dist/",
-    "copy-files": "cp -r ./src/public/ ./dist/",
+    "copy-files": "cp -r ./src/public/ ./.circleci/ ./dist/",
     "develop": "BASE_SEARCH_PATH='/' http-server ./dist/ --port=9000",
     "watch": "webpack --watch --progress --mode=development"
   },
