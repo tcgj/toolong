@@ -13,8 +13,7 @@ const COMMANDS = new Commands(duckDuckGoCommandHandler)
   .add(GITHUB_COMMAND_NAME, githubCommandHandler);
 
 async function getSearchResponse(searchString: string): Promise<Response> {
-  const decodedString = decodeURIComponent(searchString);
-  const tokens = Utils.tokenize(decodedString);
+  const tokens = Utils.tokenize(searchString);
 
   return COMMANDS.search(tokens);
 }
