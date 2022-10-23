@@ -67,11 +67,6 @@ body {
       }
     }
 
-    &.table-cell {
-      padding: 0;
-      margin: var(--table-cell-padding);
-    }
-
     .auto-wide-cell {
       grid-column: span 2;
 
@@ -83,6 +78,22 @@ body {
     .table-header {
       font-weight: 600;
       padding: 12px 16px;
+    }
+
+    &.table-cell {
+      padding: 0;
+      margin: var(--table-cell-padding);
+    }
+
+    &.invert {
+      background: $base-primary;
+
+      .table-cell {
+        &:nth-child(4n + 1),
+        &:nth-child(4n + 2) {
+          background: $base-secondary;
+        }
+      }
     }
   }
 }
