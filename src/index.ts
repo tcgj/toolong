@@ -21,7 +21,7 @@ const COMMANDS = new Commands(duckDuckGoCommandHandler)
 async function getSearchResponse(searchString: string): Promise<Response> {
   const tokens = Utils.tokenize(searchString);
 
-  return COMMANDS.search(tokens);
+  return COMMANDS.search(tokens).catch((err: Error) => new Response(err.message));
 }
 
 function setFallbackSearchHandler(altSearch: string) {

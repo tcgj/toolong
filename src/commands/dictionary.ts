@@ -27,7 +27,7 @@ const jishoCommandHandler: CommandHandler = {
   },
 };
 
-export const dictionaryCommandHandler = new Commands(dictionaryComCommandHandler)
+export const dictionaryCommandHandler = new Commands()
   .add('en', dictionaryComCommandHandler)
   .add('chn', baiduCommandHandler)
   .add('jp', jishoCommandHandler);
