@@ -1,6 +1,6 @@
 import { CommandHandler } from './command-handler';
 
-export class Commands {
+export class Commands implements CommandHandler {
   private commandMap = new Map<string, CommandHandler>();
 
   constructor(private fallbackHandler: CommandHandler) {}

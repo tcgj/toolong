@@ -1,10 +1,10 @@
 export namespace Utils {
-  export function tokenize(value: string): string[] {
-    return value.split(' ').filter((s) => s);
+  export function tokenize(value: string, delimiter: string = ' '): string[] {
+    return value.split(delimiter).filter((s) => s);
   }
 
-  export function tokensToSearchString(tokens: string[]): string {
-    return encodeURIComponent(tokens.join(' '));
+  export function tokensToSearchString(tokens: string[], delimiter: string = ' '): string {
+    return encodeURIComponent(tokens.join(delimiter));
   }
 
   export function makeSearchUrl(endpoint: string, searchParams: Record<string, string>): string {

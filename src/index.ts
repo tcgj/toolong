@@ -2,15 +2,21 @@ declare const self: ServiceWorkerGlobalScope;
 export type {};
 
 import { Commands } from './commands/commands';
+import { dictionaryCommandHandler, DICTIONARY_COMMAND_NAME } from './commands/dictionary';
 import { duckDuckGoCommandHandler, DUCK_DUCK_GO_COMMAND_NAME } from './commands/duckduckgo';
 import { githubCommandHandler, GITHUB_COMMAND_NAME } from './commands/github';
 import { googleCommandHandler, GOOGLE_COMMAND_NAME } from './commands/google';
+import { stackOverflowCommandHandler, STACK_OVERFLOW_COMMAND_NAME } from './commands/stackoverflow';
+import { youtubeCommandHandler, YOUTUBE_COMMAND_NAME } from './commands/youtube';
 import { Utils } from './util';
 
 const COMMANDS = new Commands(duckDuckGoCommandHandler)
   .add(DUCK_DUCK_GO_COMMAND_NAME, duckDuckGoCommandHandler)
   .add(GOOGLE_COMMAND_NAME, googleCommandHandler)
-  .add(GITHUB_COMMAND_NAME, githubCommandHandler);
+  .add(GITHUB_COMMAND_NAME, githubCommandHandler)
+  .add(YOUTUBE_COMMAND_NAME, youtubeCommandHandler)
+  .add(STACK_OVERFLOW_COMMAND_NAME, stackOverflowCommandHandler)
+  .add(DICTIONARY_COMMAND_NAME, dictionaryCommandHandler);
 
 async function getSearchResponse(searchString: string): Promise<Response> {
   const tokens = Utils.tokenize(searchString);
