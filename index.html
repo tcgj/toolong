@@ -31,23 +31,21 @@
   </head>
   <body>
     <header>
-      <h1>TooLong</h1>
+      <h1 class="title">TooLong</h1>
     </header>
     <main>
-      <section>
+      <section class="commands">
         <h2>Available commands</h2>
-      </section>
-      <section class="table">
-        <div class="table-cell table-header">Command</div>
-        <div class="table-cell table-header">Description</div>
+        <div class="table">
+          <div class="table-cell table-header">Command</div>
+          <div class="table-cell table-header">Description</div>
 
-        <div class="table-cell">gg</div>
-        <div class="table-cell">Search using Google</div>
-        <div class="table-cell">ddg</div>
-        <div class="table-cell">Search using DuckDuckGo</div>
-        <div class="table-cell">gh</div>
-        <div class="table-cell">
-          <div class="table">
+          <div class="table-cell">gg</div>
+          <div class="table-cell">Search using Google</div>
+          <div class="table-cell">ddg</div>
+          <div class="table-cell">Search using DuckDuckGo</div>
+          <div class="table-cell auto-wide-cell">gh</div>
+          <div class="table-cell table auto-wide-cell">
             <div class="table-cell table-header">Command</div>
             <div class="table-cell table-header">Description</div>
 
@@ -55,14 +53,21 @@
             <div class="table-cell">Search repositories on GitHub</div>
             <div class="table-cell">u</div>
             <div class="table-cell">Search users on Github</div>
-            <div class="table-cell default-command">default</div>
+            <div class="table-cell italics default-command">default</div>
             <div class="table-cell">Search using Github</div>
           </div>
+          <div class="table-cell italics default-command">default</div>
+          <div class="table-cell">
+            Search using DuckDuckGo, unless a <span class="monospace inline-code">fallback</span> search engine has been
+            set
+          </div>
         </div>
-        <div class="table-cell default-command">default</div>
-        <div class="table-cell">Search using DuckDuckGo (unless an alternative has been set)</div>
       </section>
     </main>
-    <footer>a</footer>
+    <footer>
+      <div class="footer-text">
+        Created by tcgj. View source on <a href="https://github.com/tcgj/toolong">Github</a>
+      </div>
+    </footer>
   </body>
 </html>
