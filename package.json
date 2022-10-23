@@ -18,7 +18,7 @@
     "build": "yarn clean && yarn copy-files && yarn build:ts && yarn build:css",
     "clean": "rm -rf ./dist/",
     "copy-files": "cp -r ./src/public/ ./dist/",
-    "develop": "BASE_SEARCH_PATH='/' http-server ./dist/ --port=9000",
+    "develop": "http-server ./dist/ --port=9000",
     "watch:css": "sass --style=compressed ./src:./dist --watch",
     "watch:ts": "webpack --watch --progress --mode=development"
   },
