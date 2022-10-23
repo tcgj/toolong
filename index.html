@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="search" type="application/opensearchdescription+xml" title="TooLong" href="/opensearch.xml" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="main.css" />
     <title>TooLong</title>
     <script>
       (async () => {
@@ -27,5 +29,40 @@
       })();
     </script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>TooLong</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Available commands</h2>
+      </section>
+      <section class="table">
+        <div class="table-cell table-header">Command</div>
+        <div class="table-cell table-header">Description</div>
+
+        <div class="table-cell">gg</div>
+        <div class="table-cell">Search using Google</div>
+        <div class="table-cell">ddg</div>
+        <div class="table-cell">Search using DuckDuckGo</div>
+        <div class="table-cell">gh</div>
+        <div class="table-cell">
+          <div class="table">
+            <div class="table-cell table-header">Command</div>
+            <div class="table-cell table-header">Description</div>
+
+            <div class="table-cell">r</div>
+            <div class="table-cell">Search repositories on GitHub</div>
+            <div class="table-cell">u</div>
+            <div class="table-cell">Search users on Github</div>
+            <div class="table-cell default-command">default</div>
+            <div class="table-cell">Search using Github</div>
+          </div>
+        </div>
+        <div class="table-cell default-command">default</div>
+        <div class="table-cell">Search using DuckDuckGo (unless an alternative has been set)</div>
+      </section>
+    </main>
+    <footer>a</footer>
+  </body>
 </html>
